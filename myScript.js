@@ -1,18 +1,38 @@
 const container = document.querySelector(".container");
+const clearBtn = document.querySelector('#clear-btn');
 
-for (let i = 0; i < 256; i++) {
-    const div = document.createElement('div');
+clearBtn.onClick = () => resetGrid();
+
+function gridSetup(size) {
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     
-    div.classList.add('pixel');
-    container.appendChild(div);
+    for (let i = 0; i < size * size; i++) {
+        const div = document.createElement('div');
+        div.classList.add("pixel");
+        container.appendChild(div);
+
+        div.addEventListener('mouseover', changeColour);
+    };
 };
 
-let pixel = document.querySelector(".pixel");
+function changeColour(e) {
+    e.target.style.backgroundColor = "black";
+};
 
-let className = document.querySelector('.pixel').className;
-if (className == "pixel") {
-    pixel.addEventListener("mouseover", function() {
-        pixel.style.backgroundColor = "black";
+function resetGrid() {
+
+    clearBtn.addEventListener('click', () => {
+        pixels.forEach((pixel) => {
+            pixel.style.backgroundColor = "pink";
+        });
+    
+        let size = parseInt(prompt("enter grid size: "));
+        gridSetup(size);
     });
-};
+}
 
+
+window.onload = () => {
+    gridSetup(50);
+};
