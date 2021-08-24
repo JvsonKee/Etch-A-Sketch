@@ -1,12 +1,19 @@
 const container = document.querySelector(".container");
 const clearBtn = document.querySelector('#clear-btn');
+const DEFAULT_SIZE = 16;
 
-clearBtn.onClick = () => resetGrid();
+let currentSize = DEFAULT_SIZE;
+
+clearBtn.addEventListener('click', resetGrid);
+
+function setCurrentSize(newSize) {
+    currentSize = newSize;
+}
 
 function gridSetup(size) {
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-    
+    setCurrentSize(size);
     for (let i = 0; i < size * size; i++) {
         const div = document.createElement('div');
         div.classList.add("pixel");
@@ -16,23 +23,20 @@ function gridSetup(size) {
     };
 };
 
+
 function changeColour(e) {
     e.target.style.backgroundColor = "black";
 };
 
 function resetGrid() {
-
-    clearBtn.addEventListener('click', () => {
-        pixels.forEach((pixel) => {
-            pixel.style.backgroundColor = "pink";
-        });
-    
-        let size = parseInt(prompt("enter grid size: "));
-        gridSetup(size);
+    let pixels = document.querySelectorAll('.pixel');
+    pixels.forEach((pixel) => {
+        pixel.style.backgroundColor = "pink";
     });
-}
-
+    let size = parseInt(prompt("enter grid size: "));
+        gridSetup(size);
+};
 
 window.onload = () => {
-    gridSetup(50);
+    gridSetup(DEFAULT_SIZE);
 };
