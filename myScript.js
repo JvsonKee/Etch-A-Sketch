@@ -40,3 +40,5 @@ function resetGrid() {
 window.onload = () => {
     gridSetup(DEFAULT_SIZE);
 };
+
+// need to create a function that will remove divs after creating a new grid.
