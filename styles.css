@@ -1,16 +1,36 @@
+html {
+    background-color: rgb(100, 127, 158);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 h1 {
     text-align: center;
+    color: white;
 }
 
 .container {
+    gap: 10px;
     display: grid;
-    grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(20, 1fr);
-    border: 1px solid black;
-    width: 520px;
-    height: 520px;
+    grid-template-columns: repeat(3, 1fr);
+    width: 808px;
     margin-left: auto;
     margin-right: auto;
+}
+/* .container div {
+    background-color: pink;
+} */
+
+.canvas {
+    display: grid;
+    background-color: white;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    width: 520px;
+    height: 520px;
+}
+
+.canvas:hover {
+    cursor: crosshair;
 }
 
 #clear-btn {
@@ -20,6 +40,78 @@ h1 {
     margin-right: auto;
 }
 
-.btn-div {
+.slider-controls {
+    display: grid;
+    grid-template-rows: repeat(10,1fr);
+    justify-content: center;
+    align-items: center;
+    height: 520px;
+    width: 133px;
+}
+
+#slider {
+    grid-row: 3/8;
+    transform: rotate(270deg);
+}
+
+#range-slider {
+    width: 265px;
+    appearance: none;
+    background: rgb(95, 100, 117);
+    outline: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 0 3px rgb(46, 45, 45);
+}
+
+#range-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: cornflowerblue;
+    cursor: pointer;
+    border: 4px solid #333;
+    box-shadow: -407px 0 0 400px cornflowerblue;
+  }
+
+#slider-label {
+    grid-row: 8;
     text-align: center;
+    color: white;
+}
+
+.btn-div {
+    grid-row: 9;
+    text-align: center;
+}
+
+#clear-btn {
+    transition: all .2s ease-in-out;
+    border: none;
+    border-radius: 20px;
+    height: 30px;
+    width: 60px;
+    background-color: rgb(95, 100, 117);
+    box-shadow:  0 0 3px rgb(46, 45, 45);
+    color: white;
+}
+
+#clear-btn:hover {
+    transform: translatey(-2px);
+    background-color: cornflowerblue;
+    color: black;
+}
+
+.colour-controls {
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: pink;
+    height: 520px;
+    width: 133px;
+}
+
+.colour-controls div:hover, #clear-btn{
+    cursor: pointer;
 }

@@ -10,13 +10,44 @@
     </head>
     <body>
         <h1>Etch-a-Sketch</h1>
+        
+
         <div class="container">
 
+            <div class="slider-controls">
+                
+                <div id="slider">
+                    <input type="range" min="1" max="100" value="16" id="range-slider">
+                </div>
+
+                <div id="slider-label"></div>
+
+                <div class="btn-div">
+                    <button id="clear-btn">Clear</button>
+                </div>
+
+            </div>
+
+            <div class="canvas">
+
+            </div>
+
+            <div class="colour-controls">
+                <div data-colour="black"></div>
+                <div data-colour="indianred"></div>
+                <div data-colour="cornflowerblue"></div>
+                <div data-colour="green"></div>
+                <div data-colour="orange"></div>
+                <div data-colour="khaki"></div>
+                <div data-colour="fuchsia"></div>
+                <div data-colour="mediumpurple"></div>
+                <div data-colour="grey"></div>
+                <div data-colour="white"></div>
+                
+            </div>
+
         </div>
-        <br />
-        <div class="btn-div">
-            <button id="clear-btn">Clear</button>
-        </div>
+       
         
     </body>
 </html>
