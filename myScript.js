@@ -7,14 +7,14 @@ const colourPicker = document.querySelectorAll('[data-colour]');
 const DEFAULT_SIZE = 16;
 const DEFAULT_COLOUR = "black"
 
-let currentcolour = DEFAULT_COLOUR;
+let currentColour = DEFAULT_COLOUR;
 
 clearBtn.addEventListener('click', resetGrid);
 
 colourPicker.forEach((colour) => {
     colour.style.backgroundColor = colour.getAttribute('data-colour');
     colour.addEventListener('click', () => {
-        currentcolour = colour.getAttribute('data-colour');
+        currentColour = colour.getAttribute('data-colour');
     })
 })
 
@@ -30,7 +30,7 @@ function gridSetup(size) {
 };
 
 function changeColour(e) {
-    e.target.style.backgroundColor = currentcolour;
+    e.target.style.backgroundColor = currentColour;
 };
 
 function resetGrid() {
